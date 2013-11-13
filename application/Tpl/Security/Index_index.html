@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>控制面板-PDB</title>
+<include file="Public:header"/>
+</head>
+
+<body>
+<div id="x-wrap"> <include file="Public:navbar"/>
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          <form class="form-search">
+            <input class="span5" id="x-so" name="q" autocomplete="off" type="text" value="{$Think.get.q}">
+            <button class="btn btn-primary x-master-so" type="sumbit"><i class="icon-search icon icon-white"></i></button>
+          </form>
+          <div class="x-so-wrapper span5">
+            <notempty name="so">
+              <div class="x-so-tip">找到 {$list|count} 条结果 （用时 {$runtime} 秒）</div>
+            </notempty>
+            <volist id="vo" name="list">
+              <div class="x-so-item">
+                <h2><a target="_blank" href="{:U('Password/view')}?spm={$vo.tid}">{$vo.key_title}</a></h2>
+                <p>{$vo.key_description}</p>
+              </div>
+            </volist>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>
+<include file="Public:footer"/> 
+<script>
+var P="{:P_LINK}";
+	$('#x-so').typeahead({
+		updater:function(item){
+			if(item==undefined) return $('#x-so').val();
+			return item;
+		},
+		source:function(wd,process){
+			$.getJSON(P+'/security/password/so_service?wd='+wd,function(res){
+				if(res==null)return false;
+				process(res);
+			})
+			
+			
+		}
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow" />
+<title>登录到PDM</title>
+<link href="{:P_LINK}/static/v2/css/bootstrap.min.css" rel="stylesheet">
+<link href="{:P_LINK}/static/v2/css/bootstrap-responsive.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{:P_LINK}/static/v2/css/google-bootstrap.css">
+<style>
+html, body { height: 100%; font-family: Arial }
+article { min-height: 100%; height: auto !important; height: 100%; /* Negative indent footer by it's height */ margin: 0 auto -31px; }
+.x-login-wrapper { width: 300px; margin: 0 auto; padding: 114px 0 0 0; }
+.x-login-wrapper h2 { text-align: center; text-shadow: 1px 1px 2px #FFF; color: #921123 }
+.x-login-panel { width: 238px; padding: 20px 30px 0 30px; border: 1px solid #CCC; margin: 0 auto; -webkit-box-shadow: rgba(200, 200, 200, 0.7) 0 4px 10px -1px; box-shadow: rgba(200, 200, 200, 0.7) 0 4px 10px -1px; }
+.x-register-btn { margin-left: 50px }
+.x-iedie { width: 800px; padding: 30px; margin: 0 auto; text-align: center; border: 1px solid #FFECE8; background: #fff7ed; font-size: 14px; color: #DA2F47; font-weight: bold }
+footer { border-top: 1px solid #ccc; height: 30px; line-height: 30px; text-align: center; font-family: Tahoma }
+</style>
+</head>
+
+<body>
+<!--[if lt IE 9]>
+<div class="x-iedie">
+	<p>您的浏览器版本<strong>很旧很旧</strong>，为了正常地访问网站，请升级您的浏览器 <a target="_blank" href="http://browsehappy.com">立即升级</a></p>
+</div>
+<![endif]-->
+
+<article>
+  <div class="container">
+    <div class="x-login-wrapper">
+      <h2>登录PDM</h2>
+      <div class="x-login-panel">
+        <form action="{:U('logon')}" method="post">
+          <eq name="Think.get.relogin" value="true">
+            <input type="hidden" name="refer" value="{$re_refer}">
+          </eq>
+          <fieldset>
+            <label for="id_name">邮箱</label>
+            <input type="text" name="se" autocomplete="off" id="id_name" value="{$re_account}">
+            <label for="id_pwd">密码</label>
+            <input type="password" name="sp" id="id_pwd">
+            <p id="x-ssl-status">正在检测SSL状态……</p>
+            <button type="submit" class="btn btn-primary">登录</button>
+            <a class="btn x-register-btn" href="{:UX('register')}">免费注册</a>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</article>
+<footer> &copy; 2013 PDM 由 <a href="http://www.markdream.com/?pref=pdm">markdream</a> 强力驱动 . </footer>
+<script src="{:P_LINK}/static/jquery.min.js"></script> 
+<script src="{:P_LINK}/static/v2/js/bootstrap.min.js"></script> 
+<script>
+	var domain="{:P_LINK}";
+	$(function(){
+		$.getJSON(domain+'/security/account/get_ssl',function(res){
+			if(res==1){
+				$('#x-ssl-status').text('已启用SSL加密连接！').css('color','#093');
+			}else{
+				$('#x-ssl-status').text('未启用SSL加密连接！').css('color','#f00');
+			}
+		})	
+	})
+</script>
+</body>
+</html>

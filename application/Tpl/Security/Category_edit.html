@@ -1,0 +1,54 @@
+<!doctype html>
+
+<html>
+<head>
+<meta charset="utf-8">
+<title>修改{$type.typename}分类</title>
+<include file="Public:header"/>
+</head>
+
+<body>
+<div id="x-wrap"> <include file="Public:navbar"/>
+  <div class="container">
+    <div class="row">
+      <div class="span3 x-master-sidebar">
+        <ul class="nav nav-list">
+          <li><a href="{:UX('category/index')}"><i class="icon-chevron-right"></i> 已有分类</a></li>
+          <li class="active"><a href="{:U('category/add')}"><i class="icon-chevron-right"></i> 修改{$type.typename}分类</a></li>
+        </ul>
+      </div>
+      <div class="span9 x-form">
+        <form action="{:U('update')}" class="form-horizontal" method="post">
+          <div class="control-group">
+            <label class="control-label" for="inputAccount">分类名</label>
+            <div class="controls">
+              <input type="text" id="inputAccount" value="{$type.typename}" name="typename" placeholder="你所想的分类名称">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="inputRank">排序</label>
+            <div class="controls">
+              <input type="text" id="inputRank" name="rank" value="{$type.rank}" placeholder="输入一个你期望的数字">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="inputDescr">描述</label>
+            <div class="controls">
+              <textarea name="description" id="inputDescr" rows="4" class="span5 x-master-textarea">{$type.description}</textarea>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="controls">
+              <input type='hidden' name="type_id" value="{$type.type_id}">
+              <button type="submit" class="btn btn-primary">保存</button>
+              <button type="reset" class="btn offset2 x-master-reset">重置</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<include file="Public:footer"/>
+</body>
+</html>
