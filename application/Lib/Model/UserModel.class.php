@@ -15,6 +15,6 @@ class UserModel extends Model{
  	
  	protected $_auto = array ( 
     	array('register_time','time',1,'function'),
-    	array('loginip','get_client_ip',2,'function'), // 对create_time字段在更新的时候写入当前时间戳
+    	array('loginip','get_client_ip',2,'function'), 
  	);
 }
