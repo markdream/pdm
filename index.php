@@ -16,7 +16,7 @@ define ( 'SITE_PATH', dirname ( __FILE__ ) );
 define ( 'APP_NAME', 'pdb' );
 define ( 'APP_PATH', './application/' );
 //define ( 'P_LINK', $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['SERVER_NAME'].str_replace('/index.php', '', $_SERVER['SCRIPT_NAME']) );
-define ( 'P_HOST', 'https://demo.markdream.com' );
+define ( 'P_HOST', 'https://hi.markdream.com' );
 define ( 'P_LINK', P_HOST . '/cgi' );
 
 include 'config.inc.php';

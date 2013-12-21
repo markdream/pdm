@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 本地
-Source Server Version : 50527
-Source Host           : 127.0.0.1:3306
+Source Server         : 2465
+Source Server Version : 50529
+Source Host           : db.markdream.com:3306
 Source Database       : helper
 
 Target Server Type    : MYSQL
-Target Server Version : 50527
+Target Server Version : 50529
 File Encoding         : 65001
 
-Date: 2013-08-30 15:42:15
+Date: 2013-12-21 09:18:05
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -19,7 +19,7 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `ga_privacy`;
 CREATE TABLE `ga_privacy` (
-  `tid` binary(6) NOT NULL DEFAULT '\0\0\0\0\0\0',
+  `tid` char(6) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
   `userid` int(11) NOT NULL DEFAULT '0',
   `typeid` int(11) NOT NULL DEFAULT '0',
   `mark` tinyint(4) NOT NULL DEFAULT '0' COMMENT '标记状态 0正常 1回收站 2标记',
@@ -34,15 +34,11 @@ CREATE TABLE `ga_privacy` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of ga_privacy
--- ----------------------------
-
--- ----------------------------
 -- Table structure for `ga_record`
 -- ----------------------------
 DROP TABLE IF EXISTS `ga_record`;
 CREATE TABLE `ga_record` (
-  `id` binary(6) NOT NULL,
+  `id` char(6) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `userid` int(10) unsigned NOT NULL DEFAULT '0',
   `safeuname` blob,
   `password` blob,
@@ -51,10 +47,6 @@ CREATE TABLE `ga_record` (
   `gentype` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of ga_record
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for `ga_type`
@@ -68,12 +60,7 @@ CREATE TABLE `ga_type` (
   `description` varchar(200) NOT NULL DEFAULT '',
   `rank` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`type_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of ga_type
--- ----------------------------
-INSERT INTO `ga_type` VALUES ('19', '10', '22022', '1', '', '0');
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for `ga_user`
@@ -86,8 +73,5 @@ CREATE TABLE `ga_user` (
   `register_time` int(11) NOT NULL DEFAULT '0' COMMENT '注册时间',
   `loginip` varchar(15) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of ga_user
--- ----------------------------
