@@ -166,30 +166,4 @@ class PasswordAction extends SBAction {
 		unset ( $_data );
 		return $data;
 	}
-	
-	function dbhp() {
-		$data = $this->privacy->field ( 'tid,account,password' )->select ();
-		foreach ( $data as $k => $v ) {
-			$map ['tid'] = $v ['tid'];
-			$data ['id'] = shortGen ( $v ['tid'] );
-			$this->privacy->where ( $map )->save ( $data );
-		}
-		
-		echo $this->privacy->getLastSql ();
-	
-	}
-	
-	function dbfp() {
-		$data = $this->privacy->field ( 'tid,account,password' )->select ();
-		
-		foreach ( $data as $k => $v ) {
-			$tem [$k] ['safe_a'] = GM::decode ( $v ['account'] );
-			$tem [$k] ['safe_p'] = GM::decode ( $v ['password'] );
-		}
-		dump ( $tem );
-	}
-	
-	function xixi() {
-		echo shortGen ( 'asdasasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdd' );
-	}
 }
