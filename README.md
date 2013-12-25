@@ -1,7 +1,7 @@
-###pdm（密码管理系统）###
+#pdm（密码管理系统）#
 
 
-###演示地址###
+##演示地址##
 
 https://i.markdream.com/demo/security
 
@@ -14,6 +14,9 @@ https://i.markdream.com/demo/security
 
 然后再修改"P_LINK"中的参数，P_HOST不需要修改，如果你的PDM系统是在根目录应该改成“define ( 'P_LINK', P_HOST  );”，
 如果不在根目录那么就应该写成“define ( 'P_LINK', P_HOST . '/yourdir' );”  "yourdir"是你的pdm目录名称。
+
+##修改加密key##
+打开“fck/bin.php”文件，将"PonyChiangpdb$92"字符串修改成你所想的字符串吧，注意必须保证是16个字符，如果你担心你key暴露，还可以可以将bin.php文件进行加密。推荐使用zend safeguard
 
 OK，然后试着打开浏览器访问 http://127.0.0.1/yourdir 吧。
 
