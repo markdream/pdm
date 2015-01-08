@@ -1,0 +1,60 @@
+<include file="Zeninc:header" title="PDM密码管理系统"/>
+<eq name="ACTION_NAME" value="add">
+    <div class="container" id="pdm-pading">
+      <div class="pdm-search">
+        <h3>新增类别</h3>
+
+        <form role="form" action="" method="post">
+          <div class="form-group">
+            <label for="parentType">上级类别</label>
+            <select class="form-control" name="parent">
+            <option value="0">作为一级类别</option>
+              {$selected}
+            </select>
+
+          </div>
+          <div class="form-group">
+            <label for="typeName">类别名称</label>
+            <input type="text" class="form-control" id="typeName" name="title" placeholder="">
+          </div>
+            
+          <div class="form-group">
+            <label for="sort">排序</label>
+            <input type="text" class="form-control" name="listorder" id="sort" value="8" placeholder="">
+          </div>
+          <button type="submit" class="btn btn-primary">添加</button>
+        </form>
+      </div>
+	</div>
+<else/>
+
+<div class="container" id="pdm-pading">
+
+      <div class="pdm-search">
+        <h3>修改类别</h3>
+
+        <form role="form" action="" method="post">
+          <div class="form-group">
+            <label for="parentType">上级类别</label>
+            <select class="form-control" name="parent">
+            <option value="0">作为一级类别</option>
+              {$selected}
+            </select>
+
+          </div>
+          <div class="form-group">
+            <label for="typeName">类别名称</label>
+            <input type="text" class="form-control" id="typeName" value="{$data.title}" name="title" placeholder="">
+          </div>
+            
+          <div class="form-group">
+            <label for="sort">排序</label>
+            <input type="text" class="form-control" name="listorder" value="{$data.listorder}" id="sort" value="8" placeholder="">
+          </div>
+          <input type="hidden" name="id" value="{$data.id}">
+          <button type="submit" class="btn btn-primary">修改</button>
+        </form>
+      </div>
+  </div>
+</eq>
+<include file="Zeninc:footer"/>

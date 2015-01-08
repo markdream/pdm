@@ -1,0 +1,81 @@
+<include file="Zeninc:header" title="帐号信息"/>
+
+    <div class="container" id="pdm-pading">
+
+
+		<div class="pdm-profile">
+			<h3>帐号信息</h3>
+			<form class="form-horizontal" action="" method="post" role="form">
+			  <div class="form-group">
+				<label for="email" class="col-sm-3 control-label">Email</label>
+				<div class="col-sm-9">
+				 <p class="form-control-static">{$data.email}</p>
+				</div>
+			  </div>
+			<div class="form-group">
+				<label for="password_sum" class="col-sm-3 control-label">密码个数</label>
+				<div class="col-sm-9">
+				  <p class="form-control-static">{$data.password_sum}</p>
+				</div>
+			  </div>
+			  <div class="form-group">
+				<label for="register_ip" class="col-sm-3 control-label">注册IP</label>
+				<div class="col-sm-9">
+				  <p class="form-control-static"><a href="http://www.baidu.com/s?wd={$data.register_ip|long2ip}" target="_blank">{$data.register_ip|long2ip}</a></p>
+				</div>
+			  </div>
+			  <div class="form-group">
+				<label for="register_time" class="col-sm-3 control-label">注册日期</label>
+				<div class="col-sm-9">
+				  <p class="form-control-static">{$data.register_time|pdm_dateformat='Y-m-d H:i:s'}</p>
+				</div>
+			  </div>
+			  <div class="form-group">
+				<label for="login_count" class="col-sm-3 control-label">登录次数</label>
+				<div class="col-sm-9">
+				  <p class="form-control-static">{$data.login_count}</p>
+				</div>
+			  </div>
+			  <div class="form-group">
+				<label for="login_time" class="col-sm-3 control-label">上次登录</label>
+				<div class="col-sm-9">
+				  <p class="form-control-static">{$Think.session.user.login_time|pdm_dateformat='Y-m-d H:i:s'}</p>
+				</div>
+			  </div>
+			  <div class="form-group">
+				<label for="login_ip" class="col-sm-3 control-label">上次登录IP</label>
+				<div class="col-sm-9">
+				  <p class="form-control-static"><a href="http://www.baidu.com/s?wd={$data.register_ip|long2ip}" target="_blank">{$Think.session.user.login_ip|long2ip}</a></p>
+				</div>
+			  </div>
+			  <div class="form-group">
+				<label class="col-sm-3 control-label" for="timeout">超时保护(分钟)</label>
+				<div class="col-sm-9">
+				  <input type="number" class="form-control" value="{$data.timeout}" id="timeout" name="timeout" placeholder="">
+				</div>
+			  </div>
+			  <div class="form-group">
+				<label class="col-sm-3 control-label" for="opassword">旧密码</label>
+				<div class="col-sm-9">
+				  <input type="password" class="form-control" id="opassword" name="opassword" placeholder="旧密码">
+				</div>
+			  </div>
+			  <div class="form-group">
+				<label class="col-sm-3 control-label" for="password">新密码</label>
+				<div class="col-sm-9">
+				  <input type="password" class="form-control" id="password" name="password" placeholder="新密码">
+				</div>
+			  </div>
+			  <div class="form-group">
+				<div class="col-sm-offset-2 col-sm-9">
+				  <button type="submit" class="btn btn-primary">保存资料</button>
+				</div>
+			  </div>
+
+			</form>
+		</div>  
+	  
+	
+    </div>
+  
+<include file="Zeninc:footer"/>

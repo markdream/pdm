@@ -1,0 +1,44 @@
+{__NOLAYOUT__}
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title><present name="message">操作成功<else/>Oops...</present></title>
+<link rel="stylesheet" href="{:PDM_CONTENT_URL}css/pdm.css?{:WPX_VERSION}" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+<meta name="format-detection"content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+</head>
+<body>
+
+  <present name="message">
+    <div class="page-ew-mobile page-ew-mobile-success">
+    <h1 class="gr">操作成功</h1>
+    <h2><?php echo($message); ?></h2>
+    <p>&nbsp; &gt; <span id="f3s"><?php echo($waitSecond); ?></span>秒后&nbsp;页面自动&nbsp;<a id="href" href="<?php echo($jumpUrl); ?>">跳转</a></p>
+    </div>
+  <else/>
+    <div class="page-ew-mobile">
+    <h1 class="red">出错啦</h1>
+    <h2><?php echo($error); ?></h2>
+    <p>&nbsp; &gt; <span id="f3s"><?php echo($waitSecond); ?></span>秒后&nbsp;页面自动&nbsp;<a id="href" href="<?php echo($jumpUrl); ?>">跳转</a></p>
+    </div>
+  </present>
+  </div> 
+<script type="text/javascript" src="{:PDM_CONTENT_URL}js/jquery.min.js"></script>
+<script type="text/javascript">
+            (function(){
+                var secs=<?php echo($waitSecond); ?>,si=setInterval(function(){
+          
+                    if(--secs){
+                        $('#f3s').text(secs);
+                    }else{
+                        location.href=$('#href').attr('href');
+            clearInterval(si);
+            // window.close();
+                    }
+            }, 1000)})();
+</script>
+</body>
+</html>

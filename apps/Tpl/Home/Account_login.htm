@@ -1,0 +1,41 @@
+<include file="Xeninc:header" title="登录"/>
+
+    <div class="container">
+
+		<div class="pdm-signin">
+			<h3>登录</h3>
+			<form role="form" action="" method="post">
+			  <div class="form-group">
+				<label for="email">Email</label>
+				<input type="email" name="email" class="form-control" id="email" placeholder="">
+			  </div>
+			  <div class="form-group">
+				<label for="password">密码</label>
+				<input type="password" class="form-control" id="password" name="password" placeholder="密码">
+			  </div>
+			  <div class="form-group">
+				<label for="verification_code"></label>
+				<img id="captcha" rel="{:pdm_ux('captcha')}" src="{:pdm_ux('captcha')}"/>
+			  </div>
+			  <div class="form-group">
+				<label for="verification_code">请输入上图中的拼音</label>
+				
+				<input type="verification_code" class="form-control" id="verification_code" name="verification_code" placeholder="验证码">
+			  </div>
+			  <p id="pdm-ssl-status">正在检测SSL状态……</p>
+			  <button type="submit" class="btn btn-primary">登 录</button>
+			  <a href="{:pdm_ux('forgot')}" class="btn btn-link">忘记密码？</a>
+			</form>
+		</div>  
+	  
+	
+    </div>
+<script>
+var _ssl = (("https:" == document.location.protocol) ? 1 : 0);
+if(_ssl==1){
+	$('#pdm-ssl-status').text('已启用SSL加密连接！').css('color','#093');
+}else{
+	$('#pdm-ssl-status').text('未启用SSL加密连接！').css('color','#f00');
+}
+</script>
+<include file="Xeninc:footer"/>

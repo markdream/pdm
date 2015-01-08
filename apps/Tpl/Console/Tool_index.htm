@@ -1,0 +1,95 @@
+<include file="Zeninc:header" title="生成密码"/>
+
+    <div class="container" id="pdm-pading">
+
+
+		<div class="pdm-profile">
+			<h3>生成密码</h3>
+			<form class="form-horizontal" action="" id="builder-form" method="post" role="form">
+			 
+			  <div class="form-group">
+				<label class="col-sm-3 control-label" for="alen">帐号长度</label>
+				<div class="col-sm-4">
+				 <select class="form-control" name="alen">
+					<option value="4">4&nbsp;&nbsp;&nbsp;&nbsp;（弱）</option>
+					<option value="8">8 &nbsp;&nbsp;&nbsp;（一般）</option>
+					<option selected value="16">16&nbsp;&nbsp;（推荐）</option>
+					<option value="32">32&nbsp;&nbsp;（强）</option>
+					<option value="64">64&nbsp;&nbsp;（极强）</option>
+
+			</select>
+				</div>
+			  </div>
+			  <div class="form-group">
+				<label class="col-sm-3 control-label" for="plen">密码长度</label>
+				<div class="col-sm-4">
+				  <select class="form-control" name="plen">
+					<option value="4">4&nbsp;&nbsp;&nbsp;&nbsp;（弱）</option>
+					<option value="8">8 &nbsp;&nbsp;&nbsp;（一般）</option>
+					<option selected value="16">16&nbsp;&nbsp;（推荐）</option>
+					<option value="32">32&nbsp;&nbsp;（强）</option>
+					<option value="64">64&nbsp;&nbsp;（极强）</option>
+
+			</select>
+				</div>
+			  </div>
+			  <div class="form-group">
+				<label class="col-sm-3 control-label" for="type">类型</label>
+				<div class="col-sm-4">
+				 <select class="form-control" name="type">
+					<option value="1">纯数字</option>
+					<option value="0">只有字母</option>
+					<option selected value="4">混合（推荐）</option>
+					<option value="2">全大写</option>
+					<option value="3">全小写</option>
+
+			</select>
+				</div>
+			  </div>
+			  <div class="form-group">
+				<div class="col-sm-offset-3 col-sm-10">
+				  <div class="checkbox">
+					<label>
+					  <input type="checkbox" value="1" name="char"> 使用特殊符号
+					</label>
+				  </div>
+				</div>
+			  </div>
+			  <div class="form-group">
+				<div class="col-sm-offset-3 col-sm-9">
+				  <a href="javascript:;" id="builder" class="btn btn-primary">试试手气</a>
+				  <button type="reset" class="btn btn-default col-sm-offset-1">重置</button>
+				</div>
+			  </div>
+
+			</form>
+		</div>  
+
+		<div id="builder-result" class="well pdm-build-result hidden">
+		<p><span class="glyphicon glyphicon-user"></span>&nbsp;<span id="username"></span></p>
+		<p><span class="glyphicon glyphicon-lock"></span>&nbsp;<span id="pwd"></span></p>
+		<p><a href="javascript:;" id="give_password" class="btn btn-success">我要这个密码</a></p>
+		</div>
+	
+    </div>
+<script>
+	$('#builder').click(function(){
+		var api_build="{:pdm_ux('builder')}";
+		var api_password="{:pdm_ux('Password/add')}";
+		$('#builder-result').removeClass('hidden');
+		$.post(api_build,$("#builder-form").serialize(),function(res){
+			if(res.code==0){
+				$('#username').text(res.user);
+				$('#pwd').text(res.pwd);
+				$('#give_password').attr('href',api_password+'&sign='+res.signature);
+			}
+		});
+		
+		/* $.getJSON(builder_api,$("#builder-form").serialize(),function(res){
+			if(res.code==0){
+				
+			}
+		}) */
+	})
+</script>
+<include file="Zeninc:footer"/>

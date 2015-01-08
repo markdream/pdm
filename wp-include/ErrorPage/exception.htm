@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Oops...! halt!</title>
+<link rel="stylesheet" href="<?php echo PDM_CONTENT_URL;?>css/pdm.css?<?php echo PDM_VERSION;?>" />
+<style>
+body{background:#BB3939}
+.page-ew{background: #FFF;padding: 25px;}
+</style>
+</head>
+<body>
+<div class="page-ew" style="width:688px">
+  <img class="f_l" src="<?php echo PDM_CONTENT_URL;?>images/misc/pdm_error.gif"/>
+  <ul>
+    <li style="font-size:16px; line-height: 28px;"><b><?php echo strip_tags(str_replace($_SERVER['DOCUMENT_ROOT'],'.',str_replace('\\','/',$e['message'])));?></b></li>
+    <li>&nbsp; </li>
+<?php if(isset($e['file'])) {?>
+	<li>Error: <?php echo str_replace($_SERVER['DOCUMENT_ROOT'],'.',str_replace('\\','/',$e['file'])) ;?>&#12288;L:<b class="red"><?php echo $e['line'];?></b></li>
+<?php }?>
+<?php if(isset($e['trace'])) {?>
+	<li>Trace: </li>
+	<li><?php echo nl2br(str_replace($_SERVER['DOCUMENT_ROOT'],'.',str_replace('\\','/',$e['trace'])));?></li>
+<?php }?>
+  </ul>
+  <p style="text-align:center; color:#3D3D3D">&copy;<a href="http://www.markdream.com/?pref=pdm_trace">markdream</a></p>
+
+</div>
+</body>
+</html>

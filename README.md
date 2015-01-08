@@ -1,23 +1,28 @@
-#pdm（密码管理系统）#
+#pdm 2.0（密码管理系统）#
 
 
 ##演示地址##
 
-https://i.markdream.com/demo/security
+https://i.markdream.com/demo
+
+
+##依赖##
+
+PHP5.3+（需要mcrypt组件支持）
 
 ##安装##
-由于时间仓促，没有提供web形式的安装，所以请先在mysql中创建一个名为pdm（你可以自行修改）的数据库，然后将data.sql文件导入到pdm数据库中。
+警告：PDM2.0版本不兼容1.0项目
 
-然后在根目录中找到config.db.php文件，修改里面的数据库配置文件参数即可。
+1、请在mysql中创建一个名为pdm（你可以自行修改）的数据库，然后将pdm.sql文件导入到pdm数据库中，即完成数据库导入工作。
 
-然后修改index.php文件中的"P_HOST"改成你的地址 比如：http://127.0.0.1
+2、在根目录中找到wp-config.php文件，修改里面的数据库配置文件参数为您实际数据库连接信息即可。
 
-然后再修改"P_LINK"中的参数，P_HOST不需要修改，如果你的PDM系统是在根目录应该改成“define ( 'P_LINK', P_HOST  );”，
-如果不在根目录那么就应该写成“define ( 'P_LINK', P_HOST . '/yourdir' );”  "yourdir"是你的pdm目录名称。
+3、修改index.php文件中的"PDM_URL"改成你的PDM实际访问地址， 
+比如：“http://127.0.0.1/”
+“http://127.0.0.1/pdm/”
+“http://demo.markdream.com/pdm/”
+具体以你项目部署的情况而定。
 
-##修改加密key##
-打开“fck/bin.php”文件，将"PonyChiangpdb$92"字符串修改成你所想的字符串吧，注意必须保证是16个字符，如果你担心你key暴露，还可以可以将bin.php文件进行加密。推荐使用zend safeguard
+4、注册需要邮件发送支持，请修改“wp-include/load.php”文件中的“邮件设置”项目进行填写即可，具体参见各个邮件服务商的配置信息。
 
-OK，然后试着打开浏览器访问 http://127.0.0.1/yourdir 吧。
-
-
+OK，然后试着打开浏览器访问PDM2.0吧。

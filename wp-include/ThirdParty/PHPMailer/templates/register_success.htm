@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+  <style>
+ #pdm-mail-header,#pdm-mail-container,#pdm-mail-footer{font-size:12px; padding:0 30px;}
+ #pdm-mail-header{height:50px; line-height:50px;color:#fff; font-size:14px; background:#0C832E}
+ #pdm-mail-container{padding:30px; background:#F5F5F5;font-size:16px}
+ #pdm-mail-footer{height:30px; line-height:30px;color:#fff; background:#0C832E}
+  </style>
+	<div id="pdm-mail-header">
+	<h2>#SYSTEM_NAME# - 注册确认</h2>
+	</div>
+	<div id="pdm-mail-container">
+	<p class="font-size:14px;margin:15px 0 20px 0;font-weight:bold;">亲爱的 #EMAIL# 准会员：</p>
+
+	<p>感谢你注册#SYSTEM_NAME#(www.markdream.com)，点击下面的链接即可完成注册：</p>
+
+        <p><a href="#LINK#">#LINK#</a></p>
+		
+        <p>(如果你的email程序不支持链接点击，请将上面的地址拷贝至你的浏览器(例如IE)的地址栏进入密码管理系统。)</p>
+
+         <p>你的帐号是：#EMAIL#</p>
+
+        <p>#SYSTEM_NAME#</p>
+        <p>#DATE#</p>
+	<p>此为系统邮件，请勿回复！</p>
+	</div>
+	<div id="pdm-mail-footer">
+	PDM密码管理系统 - &copy; markdream.com
+	</div>
+  </body>
+</html>

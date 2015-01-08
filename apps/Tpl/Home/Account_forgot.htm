@@ -1,0 +1,27 @@
+<include file="Xeninc:header" title="忘记密码"/>
+
+    <div class="container">
+
+		<div class="pdm-signin">
+			<h3>忘记密码</h3>
+			<form role="form" action="" method="post">
+			  <div class="form-group">
+				<label for="email">Email</label>
+				<input type="email" name="email" class="form-control" id="email" placeholder="">
+			  </div>
+			  <div class="form-group">
+				<label for="verification_code"></label>
+				<img id="captcha" rel="{:pdm_ux('captcha')}" src="{:pdm_ux('captcha')}"/>
+			  </div>
+			  <div class="form-group">
+				<label for="verification_code">请输入上图中的拼音</label>
+				
+				<input type="verification_code" class="form-control" id="verification_code" name="verification_code" placeholder="验证码">
+			  </div>
+			  <button type="submit" class="btn btn-primary">提交申请</button>
+			</form>
+		</div>  
+	  
+	
+    </div>
+<include file="Xeninc:footer"/>

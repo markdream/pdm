@@ -1,0 +1,28 @@
+<include file="Xeninc:header" title="帐号激活"/>
+
+    <div class="container">
+
+		<div class="pdm-signin">
+			<h3>帐号激活</h3>
+			<form role="form" action="" method="post">
+			  <div class="form-group">
+				<label for="email">Email</label>
+				<input type="email" name="email" class="form-control" value="{$data.email}" disabled id="email">
+			  </div>
+			  <div class="form-group">
+				<label for="password">密码</label>
+				<input type="password" class="form-control" id="password" name="password" placeholder="密码">
+			  </div>
+			  <div class="form-group">
+				<label for="auth_code">加密KEY</label>
+				<input type="text" class="form-control" id="auth_code" maxlength="30" name="auth_code" placeholder="填写的KEY你无需记住">
+			  </div>
+			  <input type="hidden" name="id" value="{$data.id|pdm_code}"/>
+			  <button type="submit" class="btn btn-primary">激活帐号</button>
+			</form>
+		</div>  
+	  
+	
+    </div>
+  
+<include file="Xeninc:footer"/>
